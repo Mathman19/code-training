@@ -1,0 +1,42 @@
+<style>
+	.d1{
+		background:LightSkyBlue;
+		align-self: center;
+	}
+	
+	.d2{
+		background:LightPink;
+		justify-self: end;
+	}
+	
+	.d3{
+		background:PaleGreen;
+		grid-row: 2 / 2;
+	}
+	
+	.d4{
+		background:LightSalmon;
+		grid-column: 2 / 3;
+	}
+	
+	.grid { 
+		font-size: 50px;
+		width: 100%;
+		min-height: 300px;	
+		background: LightGray;
+		display: grid;
+		grid-template-columns: 40% 250px 1fr;
+		grid-template-rows: 100px 200px 1fr;
+		/* use gap */
+		/* grid-column-gap: 50px;
+		grid-row-gap: 10px; */
+		/* use gap faster */
+		grid-gap: 10px 50px;
+	}
+</style>
+<div class="grid">
+	<div class="d1">Number 1</div>
+	<div class="d2">Number 2</div>
+	<div class="d3">Number 3</div>
+	<div class="d4">Number 4</div>
+</div>
