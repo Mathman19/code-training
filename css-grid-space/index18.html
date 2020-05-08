@@ -1,0 +1,56 @@
+<style>
+	.d1{
+		background:LightSkyBlue;
+		align-self: center;
+	}
+	
+	.d2{
+		background:LightPink;
+		justify-self: end;
+	}
+	
+	.d3{
+		background:PaleGreen;
+		grid-row: 2 / 2;
+		<!-- position in template areas -->
+		<!-- grid-area: footer; -->
+		grid-area: 2/1/2/4;
+	}
+	
+	.d4{
+		background:LightSalmon;
+		grid-column: 2 / 4;
+		<!-- grid area without creating template areas -->
+		grid-area: 2/2/4/4;
+	}
+	
+	.grid { 
+		font-size: 50px;
+		width: 100%;
+		min-height: 300px;	
+		background: LightGray;
+		display: grid;
+		<!-- grid-template-columns: 40% 250px 1fr; -->
+		grid-template-columns: repeat(3, minmax(100px, 1fr));
+		grid-template-rows: 100px 200px 1fr;
+		<!-- use gap -->
+		<!-- grid-column-gap: 50px; -->
+		<!-- grid-row-gap: 10px;  -->
+		<!-- use gap faster  -->
+		grid-gap: 10px 50px;
+		<!-- align all items horizontally  -->
+		justify-items: start;
+		<!-- align all items vertically -->
+		align-items: end;
+		<!-- devide grid into an area template -->
+		<!-- grid-template-areas: -->
+					<!-- "header header ." -->
+					<!-- "footer footer ."; -->
+	}
+</style>
+<div class="grid">
+	<div class="d1">Number 1</div>
+	<div class="d2">Number 2</div>
+	<div class="d3">Number 3</div>
+	<div class="d4">Number 4</div>
+</div>

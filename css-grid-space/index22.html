@@ -1,0 +1,82 @@
+<style>
+	.d1 {
+		background: LightBlue;
+		grid-area: header;
+	}
+	
+	.d2 {
+		background: LightGreen;
+		grid-area: advert;
+	}
+	
+	.d3 {
+		background: LightPink;
+		grid-area: content;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 100px 1fr;
+	}
+	
+	.d4 {
+		background: LightSalmon;
+		grid-area: footer;
+	}
+	
+	.t {
+		background: PaleTurquoise;
+		grid-area: 1/1/2/3;
+	}
+
+	.p1 {
+		background: PaleGreen;
+	}
+	
+	.p2 {
+		background: BlanchedAlmond;
+	}
+	.container {
+		font-size: 50px;
+		min-height: 500px;
+		width: 100%;
+		background: LightGray;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 50px auto 1fr auto;
+		grid-gap: 10px;
+		grid-template-areas:
+			"header"
+			"advert"
+			"content"
+			"footer";
+	}
+	
+	@media (min-width: 800px) {
+		.container {
+			grid-template-columns: auto 1fr;
+			grid-template-rows: auto 1fr auto;
+			grid-template-areas:
+				"advert header"
+				"advert content"
+				"advert footer";
+		}
+	}
+	
+	@media (min-width: 1000px) {
+		.container {
+			grid-template-areas:
+				"header header"
+				"advert content"
+				"footer footer";
+		}
+	}
+</style>
+<div class="container">
+	<div class="d1">Header</div>
+	<div class="d2">Sidebar</div>
+	<div class="d3">
+		<div class="t">Title</div>
+		<div class="p1">Paragraph 1</div>
+		<div class="p2">Paragraph 2</div>
+	</div>
+	<div class="d4">Footer</div>
+</div>
