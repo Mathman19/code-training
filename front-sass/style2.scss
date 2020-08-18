@@ -1,0 +1,12 @@
+    $text-color: blue;
+    $font-size: 20px;
+
+    .blog-post {
+      h1{
+        text-align: center;
+        color: $text-color;
+      }
+      p {
+        font-size: $font-size;
+      }
+    }
