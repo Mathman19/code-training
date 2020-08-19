@@ -1,0 +1,21 @@
+    @mixin border-stroke($val) {
+        @if $val == light {
+            border: 1px solid red;
+        }
+        @else if $val == medium {
+            border: 3px solid yellow;
+        }
+        @else if $val == heavy {
+            border: 6px solid green;
+        }
+        @else {
+            border: none
+        }
+    }
+
+    #kotak {
+        width: 200px;
+        height: 150px;
+        background-color: blue;
+        @include border-stroke(heavy);
+    }
