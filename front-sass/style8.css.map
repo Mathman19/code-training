@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAKY,AAAA,OAAO,CAAK;EAAC,KAAK,ECLvB,IAAI;CDK6B;;AAA5B,AAAA,OAAO,CAAK;EAAC,KAAK,ECLvB,IAAI;CDK6B;;AAG5B,AAAA,OAAO,CAAK;EAAC,KAAK,ECPtB,GAAG;CDO8B;;AAA7B,AAAA,OAAO,CAAK;EAAC,KAAK,ECPtB,GAAG;CDO8B;;AAA7B,AAAA,OAAO,CAAK;EAAC,KAAK,ECPtB,GAAG;CDO8B",
+    "sources": [
+        "style8.scss",
+        "_colors.scss"
+    ],
+    "names": [],
+    "file": "style8.css"
+}
