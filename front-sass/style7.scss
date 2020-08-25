@@ -1,0 +1,5 @@
+    $x: 1;
+    @while $x < 6 {
+        .text-#{$x} {font-size: 20px * $x;}
+        $x: $x + 1;
+    }
