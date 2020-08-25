@@ -1,0 +1,10 @@
+    $colors: (merah: red, kuning: yellow, hijau: green);
+
+    @each $key, $color in $colors {
+        .#{$key}-bg {background-color: $color;}
+    }
+
+    div {
+        height: 200px;
+        width: 200px;
+      }
