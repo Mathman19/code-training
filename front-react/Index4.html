@@ -1,0 +1,23 @@
+<!-- React: Render HTML Elements to the DOM -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const JSX = (<div>
+                        {/*Ini untuk judul*/}
+                        <h1>Judul</h1>
+                        <p>Some text</p>
+                        <ul>
+                            <li>list 1</li>
+                            <li>list 2</li>
+                            <li>list 3</li>
+                        </ul>
+                    </div>);
+        {/*Change below*/}
+        ReactDOM.render(JSX, document.getElementById('root'));
+    </script>
+</body>
