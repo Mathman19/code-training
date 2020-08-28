@@ -1,0 +1,25 @@
+<!-- React: Write a React Component from Scratch -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class TulisKomponenManual extends React.Component {
+            constructor(prop) {
+                super(prop);
+            }
+            render() {
+                return (
+                    <div>
+                        <h1>Tulis manual</h1>    
+                    </div>
+                )
+            }
+        };
+
+        ReactDOM.render(<TulisKomponenManual />, document.getElementById('root'));
+    </script>
+</body>
