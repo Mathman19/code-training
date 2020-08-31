@@ -1,0 +1,31 @@
+<!-- React: Access Props Using this.props -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class ReturnPassword extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            render() {
+                return <p>Your password is : <strong>{this.props.tempPassword}</strong></p>
+            }
+            
+        }
+        
+        class Password extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            render() {
+                return <ReturnPassword tempPassword = {"sadjhsd"} />
+            }
+        };
+
+        ReactDOM.render(<Password />, document.getElementById('root'));
+    </script>
+</body>
