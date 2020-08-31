@@ -1,0 +1,27 @@
+<!-- React: Review Using Props with Stateless Functional Components -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const Pendaki = (props) => {
+            return <p>{props.name}</p>
+        }
+        
+        class Password extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            render() {
+                return <Pendaki />
+            }
+        };
+
+        Pendaki.defaultProps = { name : 'Pendaki Bot' };
+
+        ReactDOM.render(<Password />, document.getElementById('root'));
+    </script>
+</body>
