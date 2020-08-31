@@ -1,0 +1,33 @@
+<!-- React: Use PropTypes to Define the Props You Expect -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
+    <script src="https://unpkg.com/prop-types@15.6.2/prop-types.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        import PropTypes from 'prop-types'
+        import React from 'react'
+
+        const Barang = (props) => {
+            return <h1>Stok barang ada {props.items}</h1>
+        }
+        
+        class StockBarang extends React.Component {
+            constructor(prop) {
+                super(prop);
+            }
+            render() {
+                return <Barang />
+            }
+        };
+
+        Barang.propTypes = { items: React.PropTypes.number.isRequired };
+        Barang.defaultProps = {items: 0}
+
+        ReactDOM.render(<StockBarang />, document.getElementById('root'));
+    </script>
+</body>
