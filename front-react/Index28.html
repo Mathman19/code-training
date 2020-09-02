@@ -1,0 +1,35 @@
+<!-- React: Create a Controlled Input -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Bio extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    input : ''
+                };
+                this.changeName = this.changeName.bind(this);
+            }
+            changeName(event) {
+                this.setState({
+                    input: event.target.value
+                });
+            }
+            render() {
+                return (
+                    <div>
+                        <input value = {this.state.input} onChange = {this.changeName.bind(this)}></input>
+                        <h1>Namaku {this.state.input}</h1>
+                    </div>
+                )
+            }
+        };
+
+        ReactDOM.render(<Bio />, document.getElementById('root'));
+    </script>
+</body>
