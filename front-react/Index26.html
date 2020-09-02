@@ -1,0 +1,44 @@
+<!-- React: Use State to Toggle an Element -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Bio extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    visibility : false
+                };
+                this.clickonMe = this.clickonMe.bind(this);
+            }
+            clickonMe() {
+                this.setState(state => ({
+                    visibility : !state.visibility
+                }));
+            }
+            render() {
+                if (this.state.visibility) {
+                    return ( 
+                        <div>
+                            <button onClick = {this.clickonMe} >Click Me!</button>
+                            <h1>You can see me</h1>    
+                        </div>
+                    )
+                } else {
+                    return ( 
+                        <div>
+                            <button onClick = {this.clickonMe} >Click Me!</button>
+                            <h1>You can't see me</h1>    
+                        </div>
+                    )
+                }
+            }
+        };
+
+        ReactDOM.render(<Bio />, document.getElementById('root'));
+    </script>
+</body>
