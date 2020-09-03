@@ -1,0 +1,46 @@
+<!-- React: Create a Controlled Form -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Bio extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    input : '',
+                    submit: ''
+                };
+                this.handleInput = this.handleInput.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+            }
+            handleInput(event) {
+                this.setState({
+                    input: event.target.value
+                });
+            }
+            handleSubmit(event) {
+                event.preventDefault();
+                this.setState({
+                    submit: this.state.input
+                });
+            }
+            render() {
+                return (
+                    <div>
+                        <form onSubmit = {this.handleSubmit}>
+                            <input value = {this.state.input} onChange = {this.handleInput} ></input>
+                            <button onClick = {this.handleSubmit}>Submit!</button>
+                        </form>
+                        <h1>Namaku adalah {this.state.submit}</h1>
+                    </div>
+                )
+            }
+        };
+
+        ReactDOM.render(<Bio />, document.getElementById('root'));
+    </script>
+</body>
