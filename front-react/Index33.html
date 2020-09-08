@@ -1,0 +1,34 @@
+<!-- React: Use the Lifecycle Method componentDidMount -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class MainMenu extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    value: null
+                }
+            }
+            componentDidMount() {
+                setTimeout( () => {
+                    this.setState({
+                        value: 323
+                    });
+                }, 2500);
+            }
+            render() {
+                return (
+                    <div>
+                        <h1>Online user: {this.state.value}</h1>    
+                    </div>
+                )
+            }
+        };
+        ReactDOM.render(<MainMenu />, document.getElementById('root'));
+    </script>
+</body>

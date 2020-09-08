@@ -1,0 +1,49 @@
+<!-- React: Add Event Listeners -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class MainMenu extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    message: ''
+                }
+                this.handleEnter = this.handleEnter.bind(this);
+                this.handleAdd = this.handleAdd.bind(this);
+            }
+            componentDidMount() {
+                document.addEventListener("keydown", this.handleEnter);
+            }
+            componentWillMount() {
+                document.removeEventListener("keydown", this.handleEnter);
+            }
+            handleAdd(props) {
+                this.setState(state => ({
+                    message: this.state.message + props
+                }));
+            }
+            handleEnter(event) {
+                if (event.keyCode === 13) {
+                    this.handleAdd('Enter');
+                }
+                else if (event.keyCode === 32) {
+                    this.handleAdd('Spasi');
+                }
+            }
+            render() {
+                return (
+                    <div>
+                        <h1>Press Enter or Space</h1>
+                        <h3>{this.state.message}</h3>    
+                    </div>
+                )
+            }
+        };
+        ReactDOM.render(<MainMenu />, document.getElementById('root'));
+    </script>
+</body>
