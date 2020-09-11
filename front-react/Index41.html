@@ -1,0 +1,48 @@
+<!-- React: Use a Ternary Expression for Conditional Rendering -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const styles = {width: 255, margin: 10}
+        class Controller extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    input: '',
+                    age: ''
+                }
+                this.change = this.change.bind(this);
+                this.submit = this.submit.bind(this);
+            }
+            change(e) {
+                this.setState({
+                    input: e.target.value,
+                    age: ''
+                });
+            }
+            submit() {
+                this.setState(state => ({
+                    age: state.input
+                }))
+            }
+            render() {
+                const buttonSatu = <button onClick = {this.submit}>Submit</button>
+                const buttonDua = <button>Silahkan masuk</button>
+                const buttonTiga = <button>Dilarang masuk</button>
+                return (
+                    <div>
+                        <h3>Input usia Anda</h3><br/>
+                        <input type = "number" style = {styles} value = {this.state.input} onChange = {this.change} /><br />
+                        {this.state.age == '' ? buttonSatu : this.state.input < 18 ? buttonTiga : buttonDua}
+                    </div>
+                );
+                
+            }
+        };
+        ReactDOM.render(<Controller />, document.getElementById('root'));
+    </script>
+</body>

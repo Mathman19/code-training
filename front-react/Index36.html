@@ -1,0 +1,24 @@
+<!-- React: Introducing Inline Styles -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Controller extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                }
+            }
+            render() {
+                return (
+                    <div style = {{color: "blue", fontSize: 150}}>Big Blue</div>
+                )
+            }
+        };
+        ReactDOM.render(<Controller />, document.getElementById('root'));
+    </script>
+</body>

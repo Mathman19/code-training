@@ -1,0 +1,70 @@
+<!-- React: Use Advanced JavaScript in React Render Method -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const styles = {width: 235, margin: 5}
+        class Controller extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    rdmIndex : '',
+                    input : ''
+                }
+                this.ask = this.ask.bind(this);
+                this.userInput = this.userInput.bind(this);
+            }
+            ask() {
+                if (this.state.input) {
+                    this.setState({
+                        rdmIndex: Math.floor(Math.random() * 20),
+                        input: ''
+                    });
+                }
+            }
+            userInput(event) {
+                this.setState({
+                    input: event.target.value
+                });
+            }
+            render() {
+                const jawaban = [
+                'Kayaknya iya',
+                'Jangan deh',
+                'Yakinin aja',
+                'Ya, tentu saja',
+                'Percaya aja sama dia',
+                'Menurutku sih iya',
+                'Keliatannya bagus deh',
+                'YAA',
+                'Kasih jawaban ya aja',
+                'Jawab ngawur aja',
+                'Tanya lagi besok, lg badmood',
+                'Kayaknya kamu jangan tau dulu deh',
+                'Belum tau',
+                'Fokus dan tanya lagi',
+                'Jangan terlalu berharap',
+                'Jawabanku sih enggak',
+                'Hatiku sih bilangnya jangan',
+                'Suka banget',
+                'Keliatan buruk deh',
+                'Meragukan banget'
+                ];
+                const answer = jawaban[this.state.rdmIndex];
+                return (
+                    <div>
+                        <input type = "text" value = {this.state.input} onChange = {this.userInput} style = {styles}/><br/>
+                        <button onClick = {this.ask}>Tanya dong</button><br/>
+                        <h3>Jawaban :</h3>
+                        <p>{answer}</p>
+                    </div>
+                )
+            }
+        };
+        ReactDOM.render(<Controller />, document.getElementById('root'));
+    </script>
+</body>

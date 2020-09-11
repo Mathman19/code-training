@@ -1,0 +1,111 @@
+<!-- React: Optimize Re-Renders with shouldComponentUpdate -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Genap extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            shouldComponentUpdate(nextProps, nextState) {
+                console.log("Harus di-update?");
+                if (nextProps.value % 2 == 0) {
+                    return true;
+                }
+                return false;
+            }
+            componentWillReceiveProps() {
+                console.log("Menerima props baru. . .");
+            }
+            componentDidUpdate() {
+                console.log("Komponen ditambahkan");
+            }
+            render() {
+                return <h1>Genap : {this.props.value}</h1>
+            }
+        };
+
+        class Ganjil extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            shouldComponentUpdate(nextProps, nextState) {
+                console.log("Harus di-update?");
+                if (nextProps.value % 2 == 1) {
+                    return true;
+                }
+                return false;
+            }
+            componentWillReceiveProps() {
+                console.log("Menerima props baru. . .");
+            }
+            componentDidUpdate() {
+                console.log("Komponen ditambahkan");
+            }
+            render() {
+                return <h1>Ganjil : {this.props.value}</h1>
+            }
+        };
+
+        class Prima extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            shouldComponentUpdate(nextProps, nextState) {
+                console.log("Harus di-update?");
+                let temp = 0;
+                if (nextProps.value > 2) {
+                    for (let i = 2; i < nextProps.value; i++) {
+                        if (nextProps.value % i == 0) {
+                            temp = temp + 1;
+                        }
+                    }
+                }
+
+                if (temp < 1) {
+                    return true;
+                }
+                return false;
+            }
+            componentWillReceiveProps() {
+                console.log("Menerima props baru. . .");
+            }
+            componentDidUpdate() {
+                console.log("Komponen ditambahkan");
+            }
+            render() {
+                return <h1>Prima : {this.props.value}</h1>
+            }
+        };
+        
+        class Controller extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    value: 0
+                }
+                this.tambahNilai = this.tambahNilai.bind(this);
+            }
+            tambahNilai() {
+                this.setState(state => ({
+                    value: state.value + 1
+                }));
+            }
+            render() {
+                return (
+                    <div>
+                        <button onClick = {this.tambahNilai}>Tambah</button>   
+                        <Genap value = {this.state.value} />
+                        <Ganjil value = {this.state.value} />
+                        <Prima value = {this.state.value} />
+                    </div>
+                )
+            }
+        };
+        ReactDOM.render(<Controller />, document.getElementById('root'));
+    </script>
+</body>
