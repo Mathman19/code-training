@@ -1,0 +1,50 @@
+<!-- React: Render Conditionally from Props -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const styles = {width: 255, margin: 10}
+        class Hasil extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+            render() {
+                return (
+                    <div>
+                        <h1>{this.props.fiftyFifty ? "Menang!" : "Kalah"}</h1>
+                    </div>
+                );
+            }
+        };
+        class Controller extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    hitung: 1
+                }
+                this.change = this.change.bind(this);
+            }
+            change() {
+                this.setState({
+                    hitung: this.state.hitung + 1
+                });
+            }
+            render() {
+                const nilai = Math.random() >= 0.5 ? true : false;
+                return (
+                    <div>
+                        <button onClick = {this.change}>Main lagi</button>
+                        <Hasil fiftyFifty = {nilai} />
+                        <p>{'Putaran : ' + this.state.hitung}</p>
+                    </div>
+                );
+                
+            }
+        };
+        ReactDOM.render(<Controller />, document.getElementById('root'));
+    </script>
+</body>
