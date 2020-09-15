@@ -1,0 +1,48 @@
+<!-- React: Use Array.map() to Dynamically Render Elements -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const styles = {width: 255, margin: 5};
+        class Controller extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    input: '',
+                    toDo: []
+                }
+                this.change = this.change.bind(this);
+                this.submit = this.submit.bind(this);
+            }
+            change(e) {
+                this.setState({
+                    input: e.target.value
+                });
+            }
+            submit() {
+                const items = this.state.input.split(',')
+                this.setState({
+                    toDo: items
+                });
+            }
+            render() {
+                const list = this.state.toDo.map(i => <li>{i}</li>)
+                return (
+                    <div>
+                        <h3>Input list : </h3>
+                        <textarea onChange = {this.change} value = {this.state.input} style = {styles} placeholder = "Separate with commas" /><br />
+                        <button onClick = {this.submit}>Submit</button>
+                        <h3>List: </h3>
+                        <ul>{list}</ul>
+                    </div>
+                );
+                
+            }
+        };
+        ReactDOM.render(<Controller />, document.getElementById('root'));
+    </script>
+</body>

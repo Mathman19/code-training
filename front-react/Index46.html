@@ -1,0 +1,55 @@
+<!-- React: Use Array.filter() to Dynamically Filter an Array -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Controller extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    users: [
+                      {
+                        username: 'Pur',
+                        online: true
+                      },
+                      {
+                        username: 'Didik',
+                        online: false
+                      },
+                      {
+                        username: 'Totok',
+                        online: true
+                      },
+                      {
+                        username: 'Bambang',
+                        online: false
+                      },
+                      {
+                        username: 'Budi',
+                        online: true
+                      },
+                      {
+                        username: 'Tejo',
+                        online: true
+                      }
+                    ]
+                }
+            }
+            render(){
+                const listOnline = this.state.users.filter(user => user.online);
+                const returnUser = listOnline.map(i => <li key={i.username}>{i.username}</li>);
+                return(
+                    <div>
+                        <h2>Online user : </h2>    
+                        <ul>{returnUser}</ul>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Controller />, document.getElementById('root'));
+    </script>
+</body>

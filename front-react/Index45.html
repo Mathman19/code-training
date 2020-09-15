@@ -1,0 +1,26 @@
+<!-- React: Give Sibling Elements a Unique Key Attribute -->
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const JenisMobil = [
+            'Toyota',
+            'Suzuki',
+            'Honda'
+        ]
+        function Controller() {
+            const listMobil = JenisMobil.map(i => <li key={i}>{i}</li>);
+            return (
+                <div>
+                    <h1>Mobil2 : </h1>
+                    <ul>{listMobil}</ul>    
+                </div>
+            )
+        }
+        ReactDOM.render(Controller(), document.getElementById('root'));
+    </script>
+</body>
