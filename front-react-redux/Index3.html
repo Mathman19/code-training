@@ -1,0 +1,26 @@
+<!-- React and Redux: Extract State Logic to Redux -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const TAMBAH = "TAMBAH";
+        const addPesan = (message) => {
+            return {
+                type: TAMBAH,
+                message
+            }
+        }
+        const messageReducer = (state = [], action) => {
+            switch (action.type) {
+                case TAMBAH:
+                    return [...state, action.message]
+                default:
+                    return state
+            }
+        }
+
+        const store = Redux.createStore(messageReducer);
+        console.log(store.getState());
+    </script>
+</body>
