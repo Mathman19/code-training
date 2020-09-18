@@ -1,0 +1,28 @@
+<!-- React and Redux: Map Dispatch to Props -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/react-redux@7.2.1/dist/react-redux.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const addMessage = (message) => {
+            return {
+                type: 'ADD',
+                message
+            }
+        }
+
+        const mapDispatchToProps = (dispatch) => {
+            return {
+                submitNewMessage: (message) => {
+                    dispatch(addMessage(message));
+                }
+            }
+        }
+        
+    </script>
+</body>
