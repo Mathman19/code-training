@@ -1,0 +1,38 @@
+<!-- Redux: Use a Switch Statement to Handle Multiple Actions -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const defaultState = {
+          authenticated: false
+        };
+
+        const reducer = (state = defaultState, action) => {
+            switch (action.type) {
+                case "LOGIN":
+                    return {authenticated: true}
+                case "LOGOUT":
+                    return {authenticated: false}
+                default:
+                    return state;
+            }
+        };
+
+        const store = Redux.createStore(reducer);
+
+        const loginUser = () => {
+        return {
+            type: 'LOGIN'
+          }
+        };
+
+        const logoutUser = () => {
+          return {
+            type: 'LOGOUT'
+          }
+        };
+        
+        console.log(store.getState());
+    </script>
+</body>

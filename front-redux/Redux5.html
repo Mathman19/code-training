@@ -1,0 +1,20 @@
+<!-- Redux: Dispatch an Action Event -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const store = Redux.createStore(
+          (state = {login: false}) => state
+        );
+
+        const loginAction = () => {
+          return {
+            type: 'LOGIN'
+          }
+        };
+
+        store.dispatch(loginAction());
+        console.log(store.getState());
+    </script>
+</body>

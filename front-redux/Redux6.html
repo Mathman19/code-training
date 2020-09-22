@@ -1,0 +1,32 @@
+<!-- Redux: Handle an Action in the Store -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const defaultState = {
+          login: false
+        };
+
+        const reducer = (state = defaultState, action) => {
+            if (action.type === "LOGIN") {
+                return {
+                    login: true
+                }
+            }
+            else {
+                return state
+            }
+        };
+
+        const store = Redux.createStore(reducer);
+
+        const loginAction = () => {
+          return {
+            type: 'LOGIN'
+          }
+        };
+        
+        console.log(store.getState());
+    </script>
+</body>
