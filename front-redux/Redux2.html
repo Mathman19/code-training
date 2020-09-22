@@ -1,0 +1,14 @@
+<!-- Redux: Get State from the Redux Store -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const store = Redux.createStore(
+          (state = 5) => state
+        );
+
+        const currentState = store.getState();
+        console.log(currentState);
+    </script>
+</body>
