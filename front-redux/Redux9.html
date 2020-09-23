@@ -1,0 +1,39 @@
+<!-- Redux: Register a Store Listener -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const TAMBAH = 'ADD';
+
+        const reducer = (state = 0, action) => {
+            switch (action.type) {
+                case TAMBAH:
+                    return state + 1;
+                default:
+                    return state;
+            }
+        };
+
+        const store = Redux.createStore(reducer);
+
+        let count = 0;
+
+        function increm() {
+            count += 1;
+        }
+
+        store.subscribe(increm);
+        
+        store.dispatch({type:TAMBAH});
+        console.log(count);
+        store.dispatch({type:TAMBAH});
+        console.log(count);
+        store.dispatch({type:TAMBAH});
+        console.log(count);
+        store.dispatch({type:TAMBAH});
+        console.log(count);
+        store.dispatch({type:TAMBAH});
+        console.log(count);
+    </script>
+</body>

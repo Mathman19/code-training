@@ -1,0 +1,44 @@
+<!-- Redux: Send Action Data to the Store -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const LOGIN = 'LOGIN';
+        const LOGOUT = 'LOGOUT';
+
+        const authReducer = (state = 'Initial State', action) => {
+          switch(action.type) {
+            case LOGIN:
+              return action.text
+            case LOGOUT:
+              return action.text
+            default:
+              return state;
+          }
+        };
+
+        const loginAction = (notes) => {
+            return {
+                type: LOGIN,
+                text: notes
+            }
+        }
+
+        const logoutAction = (notes) => {
+            return {
+                type: LOGOUT,
+                text: notes
+            }
+        }
+
+        const store = Redux.createStore(authReducer);
+
+        console.log(store.getState());
+        store.dispatch(loginAction('Please!'));
+        console.log(store.getState());
+        store.dispatch(logoutAction('NO!'));
+        console.log(store.getState());
+
+    </script>
+</body>
