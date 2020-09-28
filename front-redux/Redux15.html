@@ -1,0 +1,34 @@
+<!-- Redux: Use the Spread Operator on Arrays -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+    <script src="https://npmcdn.com/redux-thunk@2.0.1/dist/redux-thunk.min.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const ADD_TO_DO = 'ADD_TO_DO';
+
+        const immutableReducer = (state = ["Jangan ngantuk"], action) => {
+          switch(action.type) {
+            case ADD_TO_DO:
+              // don't mutate state here or the tests will fail
+              return [...state, action.todo];
+            default:
+              return state;
+          }
+        };
+
+        // an example todo argument would be 'Learn React',
+        const addToDo = (todo) => {
+          return {
+            type: ADD_TO_DO,
+            todo
+          }
+        }
+
+        const store = Redux.createStore(immutableReducer);
+
+
+        store.dispatch(addToDo("Tidur"));
+        console.log(store.getState());
+    </script>
+</body>

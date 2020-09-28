@@ -1,0 +1,37 @@
+<!-- Redux: Remove an Item from an Array -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+    <script src="https://npmcdn.com/redux-thunk@2.0.1/dist/redux-thunk.min.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const REMOVE_INDEX = 'REMOVE_INDEX';
+
+        const immutableReducer = (state = [0,1,2,3,4,5,6], action) => {
+          switch(action.type) {
+            case REMOVE_INDEX:
+              // don't mutate state here or the tests will fail
+              return [
+                  ...state.slice(0, action.index),
+                  ...state.slice(action.index + 1, state.length)
+              ];
+            default:
+              return state;
+          }
+        };
+
+        // an example todo argument would be 'Learn React',
+        const removeIndex = (index) => {
+          return {
+            type: REMOVE_INDEX,
+            index
+          }
+        }
+
+        const store = Redux.createStore(immutableReducer);
+
+
+        store.dispatch(removeIndex(5));
+        console.log(store.getState());
+    </script>
+</body>
