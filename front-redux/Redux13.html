@@ -1,0 +1,41 @@
+<!-- Redux: Write a Counter with Redux -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+    <script src="https://npmcdn.com/redux-thunk@2.0.1/dist/redux-thunk.min.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const TAMBAH = 'TAMBAH';
+        const KURANG = 'KURANG';
+
+        const counterReducer = (state = 0, action) => {
+            switch (action.type) {
+                case TAMBAH:
+                    return state + 1;
+                case KURANG:
+                    return state - 1;
+                default:
+                    return state;
+            }
+        }
+
+        const tambahAction = () => {
+            return {
+                type: TAMBAH
+            }
+        }
+
+        const kurangAction = () => {
+            return {
+                type: KURANG
+            }
+        }
+
+        const store = Redux.createStore(counterReducer);
+
+        store.dispatch(tambahAction());
+        console.log(store.getState());
+        store.dispatch(kurangAction());
+        console.log(store.getState());
+    </script>
+</body>
