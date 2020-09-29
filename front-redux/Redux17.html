@@ -1,0 +1,36 @@
+<!-- Redux: Copy an Object with Object.assign -->
+<head>
+    <script src="https://unpkg.com/redux@4.0.5/dist/redux.js" crossorigin></script>
+    <script src="https://npmcdn.com/redux-thunk@2.0.1/dist/redux-thunk.min.js" crossorigin></script>
+</head>
+<body>
+    <script>
+        const ONLINE = 'ONLINE';
+        const defaultState = {
+            user: 'M.Akbar',
+            status: 'offline',
+            friends: '87,222',
+            community: 'Instagram'
+        }
+
+        const immutableReducer = (state = defaultState, action) => {
+          switch(action.type) {
+            case ONLINE:
+              // don't mutate state here or the tests will fail
+              return Object.assign({}, state, {status: 'online'});
+            default:
+              return state;
+          }
+        };
+
+        const active = () => {
+          return {
+            type: ONLINE
+          }
+        }
+
+        const store = Redux.createStore(immutableReducer);
+
+        console.log(store.getState());
+    </script>
+</body>
